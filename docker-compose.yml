@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tutoringdb
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+  server:
+    build: ./server
+    restart: on-failure
+    env_file: ./server/.env
+    depends_on:
+      - db
+    ports:
+      - '4000:4000'
+  client:
+    build: ./client
+    restart: on-failure
+    ports:
+      - '5173:5173'
+volumes:
+  db-data:

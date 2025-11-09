@@ -1,0 +1,4 @@
+username,password,full_name,role
+alice@example.com,Passw0rd!,Alice Johnson,student
+bob@example.com,Teach3r!,Bob Smith,teacher
+ceo@example.com,CEOpass!,Charlie CEO,ceo
